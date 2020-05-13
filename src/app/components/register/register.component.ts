@@ -37,5 +37,8 @@ export class RegisterComponent implements OnInit {
     }) ;
   }
 
+  btnClickHome = function () {
+    this.router.navigate(['home']);
+  };
 
 }

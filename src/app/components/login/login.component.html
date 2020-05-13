@@ -12,13 +12,14 @@
 
           <nav class="nav-menu d-none d-lg-block">
             <ul>
-              <li class="active"><a href="home">Home</a></li>
+              <li class="active">
+                <a (click)="btnClickHome();">Home</a></li>
               <li><a href="home" >About</a></li>
               <li><a href="#contact">Contact</a></li>
 
             </ul>
           </nav><!-- .nav-menu -->
-          <a href="register" class="get-started-btn scrollto">Get Started</a>
+          <a class="get-started-btn scrollto" (click)="btnClickSignUp();">Get Started</a>
         </div>
       </div>
 
@@ -34,7 +35,7 @@
       <input type="password" placeholder="Password" id="password" formControlName = "pass">
     </div>
     <div class="text-center">
-    <button class="get-started-btn" [disabled]="loginForm.invalid">ENTRAR</button></div>
+    <button class="get-started-btn" [disabled]="loginForm.invalid">Enter</button></div>
   </form>
 
 <!--  {{ loginForm.value | json }}

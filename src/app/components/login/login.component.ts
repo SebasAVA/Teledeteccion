@@ -37,4 +37,13 @@ export class LoginComponent implements OnInit {
     }
     );
   }
+
+  btnClickSignUp = function () {
+    this.router.navigate(['register']);
+  };
+
+  btnClickHome = function () {
+    this.router.navigate(['home']);
+  };
+
 }
