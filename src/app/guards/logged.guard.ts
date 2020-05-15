@@ -21,7 +21,7 @@ export class LoggedGuard implements CanActivate {
       tap(isNoLogin => {
         if(!isNoLogin)
         {
-          this.router.navigate(['homeUser']);
+          this.router.navigate(['mapUser']);
         }
       }));
   }

@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     this.sfAuth
     .createUserWithEmailAndPassword(email, password)
     .then(() =>
-    {      this.router.navigate(['homeUser']);}
+    {      this.router.navigate(['mapUser']);}
     )
     .catch(({message}) => {
       this.error = message;

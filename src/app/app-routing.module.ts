@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component'
 import { HomeUserComponent } from './components/home-user/home-user.component'
 import { LoginGuard } from './guards/login.guard'
 import { LoggedGuard } from './guards/logged.guard';
+import { MapUserComponent} from './components/map-user/map-user.component'
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'homeUser',
     component: HomeUserComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'mapUser',
+    component: MapUserComponent,
     canActivate: [LoginGuard]
   },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },

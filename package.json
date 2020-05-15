@@ -20,11 +20,15 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "@mapbox/mapbox-gl-draw": "^1.1.2",
+    "@turf/turf": "^5.1.6",
+    "@types/googlemaps": "^3.39.5",
     "bootstrap": "^4.4.1",
     "firebase": "^7.14.3",
     "highcharts": "^8.1.0",
     "highcharts-angular": "^2.4.0",
     "jquery": "^3.5.1",
+    "mapbox-gl": "^1.10.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "startbootstrap-agency": "^6.0.0",
@@ -51,5 +55,10 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

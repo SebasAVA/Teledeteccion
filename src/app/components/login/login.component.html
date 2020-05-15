@@ -35,10 +35,21 @@
       <input type="password" placeholder="Password" id="password" formControlName = "pass">
     </div>
     <div class="text-center">
-    <button class="get-started-btn" [disabled]="loginForm.invalid">Enter</button></div>
+      <div style="text-align:center">
+    <button class="get-started-btn" [disabled]="loginForm.invalid">Log In</button></div>
+  </div>
   </form>
 
-<!--  {{ loginForm.value | json }}
+      <h4>
+        Don't have an account?
+      </h4>
+      <div style="text-align:center">
+        <a class="btn-learn-more" (click)="btnClickSignUp();">Sign Up</a>
+      </div>
+
+
+
+  <!--  {{ loginForm.value | json }}
   {{ error}} -->
 </div>
 

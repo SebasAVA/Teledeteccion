@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HighchartsChartModule} from 'highcharts-angular'
 import * as Highcharts from 'highcharts';
+import { Router } from '@angular/router';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -57,9 +58,19 @@ export class HomeUserComponent implements OnInit {
       }
     ]
   }
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(){
     Highcharts.chart('container', this.options);
   }
+
+
+  btnClickMapUser = function () {
+    this.router.navigate(['mapUser']);
+};
+
+btnDashBoard = function () {
+  this.router.navigate(['homeUser']);
+};
+
 }
