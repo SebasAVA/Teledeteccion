@@ -4,6 +4,9 @@ import * as Mapboxgl from  'mapbox-gl'
 import * as MapboxDraw from '@mapbox/mapbox-gl-draw'
 import * as turf from '@turf/turf'
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
+import {AngularFireAuth} from '@angular/fire/auth'
+import { take } from 'rxjs/operators'
 
 @Component({
   selector: 'app-map-user',
@@ -13,7 +16,8 @@ import { Router } from '@angular/router';
 export class MapUserComponent implements OnInit {
 
   mapa: Mapboxgl.Map;
-  constructor(private router: Router) { }
+  coordinates = [];
+  constructor(private router: Router,private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
     Mapboxgl.accessToken = environment.mapbox;
@@ -22,7 +26,7 @@ export class MapUserComponent implements OnInit {
     this.mapa = new Mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-74.5, 40], // starting position
+    center: [-73.9, 4.61], // starting position
     zoom: 9 // starting zoom
     });
 
@@ -49,7 +53,7 @@ btnDashBoard = function () {
 
   crearPoligono()
   {
-    var draw = new MapboxDraw({
+      var draw = new MapboxDraw({
       displayControlsDefault: false,
       controls: {
       polygon: true,
@@ -70,21 +74,43 @@ btnDashBoard = function () {
       var data = draw.getAll();
       var answer = document.getElementById('calculated-area');
       if (data.features.length > 0) {
-        var {coordinates} = draw.getAll().features[0].geometry;
-        console.log(coordinates);
+      this.coordinates = draw.getAll().features[0].geometry.coordinates[0];
+
+      console.log(this.coordinates);
       var area = turf.area(data);
       // restrict to area to 2 decimal points
       var rounded_area = Math.round(area * 100) / 100;
-      answer.innerHTML =
-      '<p><strong>' +
-      rounded_area +
-      coordinates+
-      '</strong></p><p>square meters</p>';
-      } else {
+      e = '<table class="table no-wrap p-table"><thead class="bg-light"><tr class="border-0"><th class="border-0">Latitude</th> <th class="border-0">Longitude</th></tr></thead> <tbody>'
+    for (var y=0; y<this.coordinates.length; y++)
+        {
+          e += '<tr><td>'+ Math.round(this.coordinates[y][1] * 100.0) / 100.0+'</td><td>'+Math.round(this.coordinates[y][0] * 100.0) / 100.0+'</td> </tr>';
+        }
+        e += '</tbody></table>'
+        document.getElementById("calculated-area").innerHTML = e;
+     }
+      else {
       answer.innerHTML = '';
       if (e.type !== 'draw.delete')
       alert('Use the draw tools to draw a polygon!');
       }
+      }
+
 }
+
+
+save(){
+
+console.log(this.mapa.coordinates);
+
+  this.afAuth.user.pipe(take(1)).subscribe(user =>{
+    const uid = this.db.createPushId()
+    this.db
+    .object(`coordinatesUser/${user.uid}/${uid}`)
+    .set(this.mapa.coordinates)
+  }
+  )
+
 }
+
+
 }

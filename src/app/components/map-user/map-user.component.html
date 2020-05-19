@@ -170,7 +170,7 @@
               <div class="row">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                       <div class="page-header">
-                          <h2 class="pageheader-title">Select map to analyze</h2>
+                          <h1 class="pageheader-title">Select map to analyze</h1>
                           <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                           <div class="page-breadcrumb">
 
@@ -186,17 +186,43 @@
                   <!-- basic map -->
                   <!-- ============================================================== -->
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
                       <div class="card">
                           <h5 class="card-header">Map</h5>
+                          <h2>Draw a polygon using the draw tools.</h2>
                           <div class="card-body">
                             <div id="map" class="gmaps"></div>
                             <div class="calculation-box">
-                            <p>Draw a polygon using the draw tools.</p>
-                            <div id="calculated-area"></div>
+                           <!-- <ul>
+                              <li *ngFor="let coor of coordinates">
+                                {{ coor }}
+                              </li>
+                            </ul> -->
+
                             </div>
                           </div>
                       </div>
                   </div>
+                  <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                      <h5 class="card-header">Coordinates</h5>
+                      <div class="card-body p-0">
+                        <div class="table-responsive">
+                              <div id = "calculated-area">
+
+                              </div>
+                        </div>
+
+                  </div>
+
+                  <div>
+                    <button (click)="save();">save</button>
+                  </div>
+                  <!-- ============================================================== -->
+                  <!-- end top perfomimg  -->
+                  <!-- ============================================================== -->
+              </div>
+                </div>
                   <!-- ============================================================== -->
                   <!-- end basic map -->
                   <!-- ============================================================== -->
