@@ -80,12 +80,16 @@ btnDashBoard = function () {
       var area = turf.area(data);
       // restrict to area to 2 decimal points
       var rounded_area = Math.round(area * 100) / 100;
+      var a =  '<p>'+rounded_area+'</p>'
+      document.getElementById("Area").innerHTML = a;
+
+
       e = '<table class="table no-wrap p-table"><thead class="bg-light"><tr class="border-0"><th class="border-0">Latitude</th> <th class="border-0">Longitude</th></tr></thead> <tbody>'
     for (var y=0; y<this.coordinates.length; y++)
         {
           e += '<tr><td>'+ Math.round(this.coordinates[y][1] * 100.0) / 100.0+'</td><td>'+Math.round(this.coordinates[y][0] * 100.0) / 100.0+'</td> </tr>';
         }
-        e += '</tbody></table>'
+        e += '</tbody></table>';
         document.getElementById("calculated-area").innerHTML = e;
      }
       else {

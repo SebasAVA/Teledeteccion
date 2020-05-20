@@ -201,11 +201,13 @@ h2 {
 
 h3 {
     font-size: 20px;
+    text-align: center;
 }
 
 h4 {
     font-size: 16px;
     line-height: 26px;
+    margin: 0px 0px 0px 0px;
 }
 
 h5 {
@@ -352,13 +354,17 @@ button.btn-primary {}
 
 address {}
 
+
+
 .form-group {
     margin-bottom: 12px;
+    margin-top: 12px;
 }
 
 .form-control-lg {
     padding: 12px;
 }
+
 
 
 /* Custom-Chekbox
@@ -2734,6 +2740,24 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
 }
 
 
+/* Get Startet Button */
+.btn-save {
+  margin-bottom: 12px;
+  background: #009961;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px 9px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.btn-save:hover {
+  background: #00b371;
+  color: #fff;
+}
+
 /*--- btn primary --*/
 
 .btn-primary {
@@ -2774,9 +2798,14 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
 /*--- btn secondary --*/
 
 .btn-secondary {
+
+    background-color: #009961;
     color: #fff;
-    background-color: #ff407b;
-    border-color: #ff407b;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    border-color: #009961;
 }
 
 .btn-secondary:hover {
@@ -3303,7 +3332,10 @@ btn-link
     font-size: 14px;
 }
 
-.card-body {}
+.card-body {
+  text-align: center;
+}
+
 
 .card-text {}
 

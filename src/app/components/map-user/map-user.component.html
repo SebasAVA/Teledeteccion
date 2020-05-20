@@ -188,8 +188,8 @@
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
                       <div class="card">
-                          <h5 class="card-header">Map</h5>
-                          <h2>Draw a polygon using the draw tools.</h2>
+                          <h5 class="card-header"><i class='bx bxs-map-alt' ></i> Map</h5>
+                          <h3>Draw a polygon using the draw tools</h3>
                           <div class="card-body">
                             <div id="map" class="gmaps"></div>
                             <div class="calculation-box">
@@ -205,7 +205,7 @@
                   </div>
                   <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-12">
                     <div class="card">
-                      <h5 class="card-header">Coordinates</h5>
+                      <h5 class="card-header"><i class='bx bx-location-plus' ></i> Coordinates</h5>
                       <div class="card-body p-0">
                         <div class="table-responsive">
                               <div id = "calculated-area">
@@ -214,21 +214,74 @@
                         </div>
 
                   </div>
-
-                  <div>
-                    <button (click)="save();">save</button>
-                  </div>
-                  <!-- ============================================================== -->
-                  <!-- end top perfomimg  -->
-                  <!-- ============================================================== -->
-              </div>
+                </div>
                 </div>
                   <!-- ============================================================== -->
                   <!-- end basic map -->
                   <!-- ============================================================== -->
+                  <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="card">
+                      <h5 class="card-header"><i class='bx bx-message-rounded-edit' ></i> Features</h5>
+                      <div class="card-body p-0">
+                        <div class="table-responsive">
+                        </div>
+                              <i class="bx bx-shape-polygon"></i><h4>Area in m²</h4>
+                              <div id = "Area">
+
+                              </div>
+                              <div class="form-group">
+                                <i class='bx bxs-tree' ></i>
+                                <h4>Select the type of farm</h4>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>Avocado</option>
+                                  <option>Banana</option>
+                                  <option>Beans</option>
+                                  <option>Cantaloupe</option>
+                                  <option>Chili pepper</option>
+                                  <option>Cocoa</option>
+                                  <option>Coconut</option>
+                                  <option>Coffee</option>
+                                  <option>Corn</option>
+                                  <option>Cotton</option>
+                                  <option>Cucumber</option>
+                                  <option>Eggplant</option>
+                                  <option>Lemon</option>
+                                  <option>Oil palm</option>
+                                  <option>Onion</option>
+                                  <option>Orange</option>
+                                  <option>Pepper</option>
+                                  <option>Potato</option>
+                                  <option>Pumpkin</option>
+                                  <option>Rice</option>
+                                  <option>Sorghum</option>
+                                  <option>Soy</option>
+                                  <option>Sugar cane</option>
+                                  <option>Tomato</option>
+                                  <option>Watermelon</option>
+                                  <option>Yam</option>
+                                  <option>Yucca</option>
+                                  <option>Zapallo</option>
+                                  <option>Other</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <i class='bx bx-atom' ></i>
+                                <h4>Select the type of analysis</h4>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>Total Analysis</option>
+                                  <option>Partial Analysis</option>
+                                  <option>Time Series Analysis</option>
+                                </select>
+                              </div>
+                        </div>
+                        <div style="text-align:center">
+                          <button class="btn-save" (click)="save();">save</button>
+                        </div>
+                  </div>
+
 
               </div>
-
+            </div>
           </div>
 
       </div>
