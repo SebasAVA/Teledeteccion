@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
 import {AngularFireAuth} from '@angular/fire/auth'
 import { take } from 'rxjs/operators'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-map-user',
@@ -14,10 +15,15 @@ import { take } from 'rxjs/operators'
   styleUrls: ['./map-user.component.scss']
 })
 export class MapUserComponent implements OnInit {
-
+  saveForm: FormGroup;
   mapa: Mapboxgl.Map;
   coordinates = [];
-  constructor(private router: Router,private db: AngularFireDatabase, private afAuth: AngularFireAuth) { }
+  Area = '';
+  constructor(formbuilder: FormBuilder,private router: Router,private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+    this.saveForm = formbuilder.group({
+      name: ['', Validators.required]
+    });
+   }
 
   ngOnInit(): void {
     Mapboxgl.accessToken = environment.mapbox;
@@ -80,6 +86,7 @@ btnDashBoard = function () {
       var area = turf.area(data);
       // restrict to area to 2 decimal points
       var rounded_area = Math.round(area * 100) / 100;
+      this.Area = rounded_area;
       var a =  '<p>'+rounded_area+'</p>'
       document.getElementById("Area").innerHTML = a;
 
@@ -104,13 +111,21 @@ btnDashBoard = function () {
 
 save(){
 
-console.log(this.mapa.coordinates);
+  console.log(this.mapa.coordinates);
+
+
+
+
+  const { name } = this.saveForm.value;
+  const Coordenadas = this.mapa.coordinates;
+  const SquareMeters = this.Area;
+
 
   this.afAuth.user.pipe(take(1)).subscribe(user =>{
     const uid = this.db.createPushId()
     this.db
     .object(`coordinatesUser/${user.uid}/${uid}`)
-    .set(this.mapa.coordinates)
+    .set({name,Coordenadas,SquareMeters})
   }
   )
 
