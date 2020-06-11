@@ -7,6 +7,7 @@ import { HomeUserComponent } from './components/home-user/home-user.component'
 import { LoginGuard } from './guards/login.guard'
 import { LoggedGuard } from './guards/logged.guard';
 import { MapUserComponent} from './components/map-user/map-user.component'
+import { MapInfoComponent } from './components/map-info/map-info.component'
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'mapUser',
     component: MapUserComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'homeUser/:id',
+    component: MapInfoComponent,
     canActivate: [LoginGuard]
   },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },

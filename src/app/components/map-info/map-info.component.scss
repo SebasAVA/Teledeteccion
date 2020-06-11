@@ -290,9 +290,7 @@ input[type=file] {
     font-size: 15px;
 }
 
-input {}
 
-button {}
 
 button:focus {
     outline: 0;
@@ -337,13 +335,7 @@ textarea:focus::-webkit-input-placeholder {
     color: #5969ff !important;
 }
 
-button.btn {}
 
-button.btn-default {}
-
-button.btn-primary {}
-
-address {}
 
 .form-group {
     margin-bottom: 12px;
@@ -1047,11 +1039,7 @@ Borders
 Fontawesome size
 -------------------------*/
 
-.fa-xl {}
 
-.fa-lg {}
-
-.fa-md {}
 
 .fa-sm {
     font-size: 24px !important;
@@ -1212,9 +1200,6 @@ Legends
     font-size: 14px;
 }
 
-.legend-title {}
-
-.legend-text {}
 
 
 /* ==========================================================================
@@ -4884,13 +4869,7 @@ Vertical Timeline - by CodyHouse.co
     border-right: 7px solid white;
 }
 
-.cd-timeline__content h2 {}
 
-.cd-timeline__content p,
-.cd-timeline__read-more,
-.cd-timeline__date {}
-
-.cd-timeline__content p {}
 
 .cd-timeline__read-more,
 .cd-timeline__date {
@@ -4916,10 +4895,7 @@ Vertical Timeline - by CodyHouse.co
 }
 
 @media only screen and (min-width:768px) {
-    .cd-timeline__content h2 {}
-    .cd-timeline__content p {}
-    .cd-timeline__read-more,
-    .cd-timeline__date {}
+
 }
 
 @media only screen and (min-width:1170px) {
@@ -5391,7 +5367,6 @@ Vertical Timeline - by CodyHouse.co
 6.12 Shortable / Nesetable
 -------------------------*/
 
-.dashboard-short-list {}
 
 .drag-handle,
 .drag-indicator {
@@ -5592,11 +5567,6 @@ Vertical Timeline - by CodyHouse.co
     -moz-box-sizing: border-box;
 }
 
-#nestable2 .dd-handle {}
-
-#nestable2 .dd-handle:hover {}
-
-#nestable2 .dd-item>button:before {}
 
 .dd-hover>.dd-handle {
     background: #5969ff !important;

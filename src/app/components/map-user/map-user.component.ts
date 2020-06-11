@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef,ViewChild } from '@angular/core';
 import { environment } from  '../../../environments/environment'
 import * as Mapboxgl from  'mapbox-gl'
 import * as MapboxDraw from '@mapbox/mapbox-gl-draw'
@@ -8,6 +8,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import {AngularFireAuth} from '@angular/fire/auth'
 import { take } from 'rxjs/operators'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-map-user',
@@ -19,7 +20,8 @@ export class MapUserComponent implements OnInit {
   mapa: Mapboxgl.Map;
   coordinates = [];
   Area = '';
-  constructor(formbuilder: FormBuilder,private router: Router,private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  @ViewChild('secondDialog') secondDialog: TemplateRef<any>;
+  constructor(formbuilder: FormBuilder,private router: Router,private db: AngularFireDatabase, private afAuth: AngularFireAuth, private dialog: MatDialog) {
     this.saveForm = formbuilder.group({
       name: ['', Validators.required]
     });
@@ -31,9 +33,9 @@ export class MapUserComponent implements OnInit {
 
     this.mapa = new Mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-73.9, 4.61], // starting position
-    zoom: 9 // starting zoom
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    center: [-74.03, 4.88], // starting position
+    zoom: 12 // starting zoom
     });
 
     //this.crearMarcador(-74.5, 40);
@@ -114,7 +116,9 @@ save(){
   console.log(this.mapa.coordinates);
 
 
-
+  let dateTime = new Date().toString();
+  let timestamp =  Date.now().toString();
+  console.log(dateTime);
 
   const { name } = this.saveForm.value;
   const Coordenadas = this.mapa.coordinates;
@@ -125,10 +129,14 @@ save(){
     const uid = this.db.createPushId()
     this.db
     .object(`coordinatesUser/${user.uid}/${uid}`)
-    .set({name,Coordenadas,SquareMeters})
+    .set({name,Coordenadas,SquareMeters,dateTime,timestamp,uid})
   }
   )
+  this.openOtherDialog();
+}
 
+openOtherDialog() {
+  this.dialog.open(this.secondDialog);
 }
 
 

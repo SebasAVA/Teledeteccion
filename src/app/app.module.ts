@@ -12,6 +12,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeUserComponent } from './components/home-user/home-user.component';
 import { MapUserComponent } from './components/map-user/map-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule} from '@angular/material/icon';
+import { MapInfoComponent } from './components/map-info/map-info.component'
+import {MatDialogModule, MatDialog} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { MapUserComponent } from './components/map-user/map-user.component';
     LoginComponent,
     RegisterComponent,
     HomeUserComponent,
-    MapUserComponent
+    MapUserComponent,
+    MapInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,10 @@ import { MapUserComponent } from './components/map-user/map-user.component';
     ReactiveFormsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.fire),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

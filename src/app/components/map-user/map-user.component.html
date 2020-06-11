@@ -279,7 +279,7 @@
                                 <input type="text" class="form-control" formControlName = "name" placeholder="Enter name of the farm">
                               </div>
                               <div style="text-align:center">
-                                <button class="btn-save" [disabled]="saveForm.invalid">save</button>
+                                <button class="btn-save" [disabled]="saveForm.invalid">Save</button>
                               </div>
                             </form>
 
@@ -320,3 +320,10 @@
 
 
 </body>
+
+<ng-template #secondDialog>
+  <h2 matDialogTitle>Your coordinates were sended successfully</h2>
+  <p matDialogContent>The Terrain will be examined in a period of 3 days and the result will appear in the Dashboard/Terrain Analysis section.</p>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose>Close</button>
+  </mat-dialog-actions>
