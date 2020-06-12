@@ -23,7 +23,8 @@ export class MapUserComponent implements OnInit {
   @ViewChild('secondDialog') secondDialog: TemplateRef<any>;
   constructor(formbuilder: FormBuilder,private router: Router,private db: AngularFireDatabase, private afAuth: AngularFireAuth, private dialog: MatDialog) {
     this.saveForm = formbuilder.group({
-      name: ['', Validators.required]
+      name: ['', Validators.required],
+      years: ['', Validators.required]
     });
    }
 
@@ -120,16 +121,16 @@ save(){
   let timestamp =  Date.now().toString();
   console.log(dateTime);
 
-  const { name } = this.saveForm.value;
+  const { name,years } = this.saveForm.value;
   const Coordenadas = this.mapa.coordinates;
   const SquareMeters = this.Area;
-
+  const status = "Pendiente";
 
   this.afAuth.user.pipe(take(1)).subscribe(user =>{
     const uid = this.db.createPushId()
     this.db
     .object(`coordinatesUser/${user.uid}/${uid}`)
-    .set({name,Coordenadas,SquareMeters,dateTime,timestamp,uid})
+    .set({name,Coordenadas,SquareMeters,dateTime,timestamp,years,status,uid})
   }
   )
   this.openOtherDialog();
